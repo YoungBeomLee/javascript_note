@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slide01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+      }
+      ul {
+        list-style: none;
+      }
+      #brand_visual {
+        width: 100%;
+        /* overflow: hidden; */
+        height: 500px;
+        min-width: 1000px;
+        background-color: #8c8c8c;
+        position: relative;
+      }
+      #brand_visual ul {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        display: flex;
+      }
+      #brand_visual ul li {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 500px;
+        font-size: 5em;
+      }
+      .visual_0 {
+        left: 0%;
+        background: purple;
+      }
+      .visual_1 {
+        left: 100%;
+        background: green;
+      }
+      .visual_2 {
+        left: 200%;
+        background: blue;
+      }
+      #buttonlist{
+        display: flex;
+        position: absolute; /* body 기준 */
+        top:215px;
+        left: 50%;
+      }
+      #buttonlist li{
+        width: 100px;
+        height: 100px;
+        background: url(./img/btn.png) 0 -107px no-repeat;
+        margin: 0 5px;
+       
+      }
+      #buttonlist li.on{
+        background-position: 0 0;
+      }
+    </style>
+     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+     <script src="slide01.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="brand_visual">
+        <ul>
+          <li class="visual_0"><a href="#">배너이미지1</a></li>
+          <li class="visual_1"><a href="#">배너이미지2</a></li>
+          <li class="visual_2"><a href="#">배너이미지3</a></li>
+        </ul>
+      </div>
+      <ul id="buttonlist">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -31,7 +31,7 @@ for(let i=6; i>=1; i--){
 }
 */
 //구구단5단
-let i=5;
+/*let i=5;
 
 for(let j=1; j<=9; j++){
 
@@ -39,7 +39,7 @@ for(let j=1; j<=9; j++){
 
   document.write(result)
 }
-
+*/
 /* 역삼각형 별찍기
 document.write("<br>")
 for(let i=1; i<6;i++){
@@ -61,5 +61,13 @@ for(let i=1; i<6;i++){
 */
 
 //1~10까지 수에서 짝수끼리 더해서 출력하세요.
-
-
+var num=Number(prompt("숫자를 넣으시오.","0"));
+var sum=0;
+for(let i=0;i<=num;i++){
+   
+    if(i%2==0){
+        sum=sum+i;
+    }
+    
+}
+document.write("<br>",sum);
