@@ -1,36 +1,95 @@
 $(function () {
   const visual = $("#brand_visual>ul>li");
-  visual.css("background-color", "yellow");
-  const button = $("#brand_visual>ul>li");
+  const button = $("#buttonlist>li");
   let current = 0; // 현재
+  let btnidx = 0; //클릭한 페이저 버튼의 인덱스
   let id; //setIntervalId
   const speed = 3000;
   //console.log(visual,button);
 
   //버튼클릭함수
-  button.click(function () {});
+  button.click(function () {
+    btnidx = $(this).index();
+   // console.log(btnidx);
+    button.removeClass("on");
+    $(this).addClass("on");
+    move();
+    //선택된것만 적용하기
+    //1.다 지우고 걔(this 클릭되어져있는놈)만 적용.
+  });
   //시간마다실행
   timer();
   function timer() {
-    setInterval(function () {
+    id = setInterval(function () {
       let next = current + 1;
-
-      if (next == visual.length - 1) {//인덱스번호가 2이면 next를 0으로 해라.
+      if (next == visual.length) {
+        //인덱스번호가 3이면 next를 0으로 해라.
         next = 0;
       }
-      move(next);
-      // console.log(current++);
+      button.eq(next).trigger("click");
+       console.log(current);
     }, speed);
   }
+
   //이동시키는 함수
-  function move(next) {
-    console.log("next" + next);
+  function move() {
+    if (current == btnidx) return;
+    //console.log("무브" + next);
+    //console.log(btnidx);
     let cu = visual.eq(current);
-    let ne = visual.eq(next);
+    let ne = visual.eq(btnidx);
     cu.css("left", "0").stop().animate({ left: "-100%" });
-    ne.stop().animate({ left: "0%" });
+    ne.css("left", "100%").stop().animate({ left: "0%" });
+    current = btnidx;
   }
-}); //jQuery
+
+  //clearInterval
+  clearAuto();
+	function clearAuto() {
+		$("#brand_visual,#buttonlist,.controls").mouseenter(function () {
+			clearInterval(id);
+		});
+		$("#brand_visual,#buttonlist,.controls").mouseleave(function () {
+			timer();
+		});
+	}
+
+  //좌우컨트롤 버튼
+  controls();
+  function controls() {
+    $(".controls .next").click(function () {
+      btnidx = btnidx + 1;
+      if (btnidx == visual.length ) {
+        btnidx = 0;
+      }
+      button.removeClass("on");
+      button.eq(btnidx).addClass("on");
+
+      let cu = visual.eq(current);
+      let ne = visual.eq(btnidx);
+      cu.css("left", "0").stop().animate({ left: "-100%" });
+      ne.css("left", "100%").stop().animate({ left: "0" });
+      current = btnidx;
+      return false;
+    });
+    $(".controls .prev").click(function () {
+      btnidx = btnidx - 1;
+      if (current == 0) {
+        btnidx = visual.length - 1;
+      }
+      button.removeClass("on");
+      button.eq(btnidx).addClass("on");
+      let cu = visual.eq(current);
+      let pr = visual.eq(btnidx);
+      cu.css("left", "0").stop().animate({ left: "100%" });
+      pr.css("left", "-100%").stop().animate({ left: "0" });
+      current = btnidx;
+      return false;
+    });
+  }
+});
+
+//jQuery
 
 /*
 document.addEventListener("DOMContentLoaded", function () {
