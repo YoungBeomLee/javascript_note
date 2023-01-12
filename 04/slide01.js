@@ -10,6 +10,8 @@ $(function () {
   //버튼클릭함수
   button.click(function () {
     btnidx = $(this).index();
+
+
     button.removeClass("on");
     $(this).addClass("on");
     move();
@@ -17,6 +19,7 @@ $(function () {
     //1.다 지우고 걔(this 클릭되어져있는놈)만 적용.
   });
   //시간마다실행
+
   
 
   //이동시키는 함수
@@ -29,6 +32,7 @@ $(function () {
     ne.css("left", "100%").stop().animate({ left: "0%" });
     current = btnidx;
   }
+
   timer();
   function timer() {
     id = setInterval(function () {
@@ -38,9 +42,17 @@ $(function () {
         next = 0;
       }
       button.eq(next).trigger("click");
+
       // console.log(current++);
     }, speed);
   }
+
+ 
+  
+
+ 
+
+
   //clearInterval
   clearAuto();
 	function clearAuto() {
@@ -86,6 +98,7 @@ $(function () {
     });
   }
 });
+
 
 //jQuery
 

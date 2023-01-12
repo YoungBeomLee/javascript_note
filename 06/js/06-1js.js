@@ -1,9 +1,12 @@
 //원뎁스 a를 변수 gnbLiA 할당
+
 let gnbLiA = $(".gnb>li>a");//border,padding
+
 let sub = $(".sub");
 let aH = $(".sub>li>a").outerHeight()-4;//높이 가변적 outerHeight
 let check=false;
 console.log(aH);
+
 
 
 gnbLiA.click(function () {
@@ -31,3 +34,4 @@ gnbLiA.click(function () {
 
 
 });*/
+

@@ -1,3 +1,4 @@
+
 /*let list1=document.querySelectorAll("#list1>li");
 list1.forEach(function(el,idx){
     console.log(el,idx);
@@ -22,3 +23,4 @@ list1.each(function(idx,el){
    
 })
 })
+
