@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery</title>
+</head>
+<body>
+    <div id="galleryWrap">
+        <h1>이미지갤러리</h1>
+        <p>
+            <a href="#prev" onclick="prevgallery()">⏪</a>
+            <img src="./img/img1.jpg" width="300" height="200" id="gallery">
+            <a href="#next" onclick="nextgallery()">⏩</a>
+        </p>
+    </div>
+    <script>
+        let num=1; //전역변수
+        
+        function nextgallery(){
+            num++;
+            if(num>7){
+                num=1;
+            }
+            document.getElementById("gallery").src="./img/img"+num+".jpg";
+            return false; //a태그 눌렀을때 #스크롤 상단으로 올려주는 기능 막기
+        }
+       
+        function prevgallery(){
+            num--;
+            
+            if(num<=0){
+                num=7;
+            }
+            console.log(num);
+            document.getElementById("gallery").src="./img/img"+num+".jpg";
+            return false;
+        }
+       
+    
+    </script>
+</body>
+</html>

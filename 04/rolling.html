@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rolling</title>
+    <style>
+      /* img 72px + 여백8px*=80px */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #frame {
+        width: 232px;
+        height: 88px;
+        position: relative;
+        margin: 10px auto;
+        border: 1px solid blue;
+        overflow: hidden;
+      }
+      #banner {
+        width: 400px;
+        height: 54px;
+        border: 1px solid red;
+        display: flex;
+        list-style-type: none;
+      }
+      #banner li {
+        flex: 0 0 80px; /*shrink basis flow */
+        list-style: none;
+        width: 80px;
+        height: 100%;
+        background-color: gray;
+        font-size: 2em;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+      // document.addEventListener("DOMContentLoaded",function(){})
+      $(function () {
+        //변수
+        let list = $("#banner");
+        const show_num = 3;
+        const total = list.find("li").length;
+        const li_width = list.find("li").eq(0).width();
+        console.log(li_width);
+        const copyObj = list.find("li").clone().css("background", "red"); //li 3개 복사
+        list.append(copyObj); //li복사한개수만큼 붙여넣기
+
+        //슬라이드기능 구현시 번호를 저장할 변수를 먼저만들자
+        let num = 0;
+        
+        timer=setInterval(autoplay,2000)
+        $(".next").click(function () {
+          if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
+          }
+          num++;
+          console.log(num);
+          list.stop().animate({ "margin-left": -li_width * num }, 500);
+          return false; //a태그 스크롤위로 방지
+        });
+
+        $(".prev").click(function () {
+          if (num == 0) {
+            num = total; //3
+            list.css("margin-left", -li_width * num);
+          }
+          num--;
+          //현재 num 0
+          console.log(num);
+          list.stop().animate({ "margin-left": -li_width * num }, 500);
+          return false; //a태그 스크롤위로 방지
+        });
+        function autoplay(){
+           
+            if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
+          }
+          num++;
+          console.log(num);
+          list.stop().animate({ "margin-left": -li_width * num }, 500);
+           
+        }
+        $(".stop").click(function () {
+            clearInterval(timer);
+        });
+        $(".play").click(function () {
+            setInterval(autoplay,2000);
+        });
+       
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Rolling</h1>
+    <div id="frame">
+      <ul id="banner">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+    <a href="#prev" class="prev">⏪</a>
+    <a href="#play" class="play">▶</a>
+    <a href="#stop" class="stop">⏸</a>
+    <a href="#next" class="next">⏩</a>
+  </body>
+</html>

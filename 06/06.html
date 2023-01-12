@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-size: 13px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .gnb {
+        width: 200px;
+        margin: 20px auto 0;
+        text-align: center;
+        text-indent: 10px;
+      }
+
+      .gnb > li > a {
+        display: block;
+        height: 36px;
+        background: #390;
+        cursor: pointer;
+        line-height: 3em;
+        border-top: 1px dotted #fff;
+        color: #fff;
+      }
+
+      .gnb .sub li {
+        height: 36px;
+        line-height: 3em;
+        background: #cf9;
+      }
+
+      .gnb .sub li a {
+        display: block;
+        width: 100%;
+        color: #222;
+      }
+
+      .gnb .sub li:hover {
+        background: #cf0;
+      }
+
+      .sub {
+        transition: height 0.5s;
+        overflow: hidden;
+        height: 0px;
+      }
+
+      .sub.on {
+        height: 110px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="gnb">
+      <li>
+        <a href="#">kogas 소개</a>
+        <ul class="sub">
+          <li><a href="#">KOGAS개요</a></li>
+          <li><a href="#">뉴스룸</a></li>
+          <li><a href="#">KOGAS사보</a></li>
+          <li><a href="#">CEO인사말</a></li>
+          <li><a href="#">공사연혁</a></li>
+          <li><a href="#">조직안내</a></li>
+          <li><a href="#">고객헌장</a></li>
+          <li><a href="#">채용정보</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">함께해요</a>
+        <ul class="sub">
+          <li><a href="#">KOGAS 홍보자료</a></li>
+          <li><a href="#">천연가스 홍보관</a></li>
+          <li><a href="#">온라인민원</a></li>
+          <li><a href="#">고객지원제도</a></li>
+          <li><a href="#">선수단 소개</a></li>
+          <li><a href="#">사회공헌</a></li>
+          <li><a href="#">비정규직 정규직 전환 알림방</a></li>
+          <li><a href="#">스타트업 경진대회(빅스타)</a></li>
+          <li><a href="#">더 좋은 일자리 만들기</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">청정에너지</a>
+        <ul class="sub">
+          <li><a href="#">천연가스사업</a></li>
+          <li><a href="#">미래에너지 사업</a></li>
+          <li><a href="#">해외사업</a></li>
+          <li><a href="#">연구개발</a></li>
+          <li><a href="#">수소에너지 사업</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">지식IN</a>
+        <ul class="sub">
+          <li><a href="#">천연가스정보</a></li>
+          <li><a href="#">천연가스투어</a></li>
+          <li><a href="#">천연가스요금정보</a></li>
+          <li><a href="#">도시가스열량제도</a></li>
+          <li><a href="#">천연가스보고서</a></li>
+          <li><a href="#">통합자료실</a></li>
+          <li><a href="#">용어사전</a></li>
+          <li><a href="#">수소에너지 정보</a></li>
+        </ul>
+      </li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="js/06.js"></script> -->
+    <!-- <script src="js/06-1js.js"></script> -->
+    <!-- vainilla javascript 를 사용한 가변높이 Accordian -->
+    <!-- <script src="js/06-2js.js"></script> -->
+    <script src="js/06-3js.js"></script>
+  </body>
+</html>

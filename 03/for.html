@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <h1>반복문</h1>
+    <h2>for</h2>
+    <ul class="menu1">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+    <h2>forEach</h2>
+    <ul class="menu2">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+    <h2>forof/forin</h2>
+    <ul class="menu3">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+    <h2>do/while</h2>
+    <ul class="menu4">
+      <li>list item1</li>
+      <li>list item2</li>
+      <li>list item3</li>
+      <li>list item4</li>
+    </ul>
+    <hr />
+    <script>
+      /*
+      getElementbyID
+      getElementsbyClassName()[]
+      getElementsbyTagName()[]
+      querySelector("selector")
+      querySelectorAll("selectors")
+        */
+        //for
+      const menu1 = document.querySelectorAll(".menu1 li");
+      console.log(menu1);
+      
+      for(let i=0;i<menu1.length;i++){
+        menu1[i].style.color="blue";
+        menu1[i].addEventListener("mouseover",function(){//이거 프로젝트 nav 배경색바꿀때 사용.
+            menu4[i].style.color="red"
+            menu3[i].style.color="red"
+            menu2[i].style.color="red"
+            this.style.color="red"
+        })
+        menu1[i].addEventListener("mouseout",function() {
+            menu4[i].style.color ="blue"
+            menu3[i].style.color ="blue"
+            menu2[i].style.color ="blue"
+            this.style.color="blue"
+            console.log(this)
+        })
+      }
+      //forEach
+      const menu2 = document.querySelectorAll(".menu2 li");
+      menu2.forEach(function(x,y,z){
+        
+        x.style.color="blue"
+        menu2[y].addEventListener("mouseover" ,function(){
+            this.style.backgroundColor="pink";
+        })
+        menu2[y].addEventListener("mouseout", function(){
+            this.style.backgroundColor="skyblue";
+            this.style.color="white";
+        })
+        //console.log(x);//배열 요소를 한번씩 실행
+        //console.log(y);//인덱스 번호
+        //console.log(z);//배열전부
+      })//forEach 함수를 부를때는 함수가 안에있어야한다.,배열요소들을 반복실행. ()=>{}:에로우 펑션 function대신 이걸로 가능.
+      
+
+      const menu3 = document.querySelectorAll(".menu3 li");
+      for(let k of menu3){
+        k.style.color="blue";
+        k.addEventListener("mouseover",function(){
+            this.style.backgroundColor="pink"
+        })
+        k.addEventListener("mouseout",function(){
+            this.style.backgroundColor="skyblue";
+        })
+        console.log(k);
+      }//for of
+
+      const menu4 = document.querySelectorAll(".menu4 li");
+      let y=0;
+      do{
+        menu4[y].style.color="blue";
+        menu4[y].addEventListener("mouseover",function(){
+            this.style.backgroundColor="pink";
+        })
+        menu4[y].addEventListener("mouseout",function(){
+            this.style.backgroundColor="yellow";
+            this.style.color="skyblue";
+        })
+        y++;
+      }
+      while(y<menu4.length);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+let text=$(".txt");//퍼센트 게이지 값을 보여주는 엘리먼트
+let section=$("section")
+let progressBar=$(".bar")//퍼센트 게이지 엘리먼트
+let windowHeight=$(window).height();
+let scrollTop;
+
+$(window).scroll (function(){
+    scrollTop=$(this).scrollTop();
+    
+    var scrollHeight = section.height(); //패딩을 포함한 높이
+    var scrollRealHeight = scrollHeight - windowHeight; //스크롤할 실제 거리
+    var scrollPercent = Math.floor((scrollTop / scrollRealHeight) * 100); //백분율
+    if(scrollPercent >=100){
+        scrollPercent=100;
+    }
+   
+    
+    
+    text.text(scrollPercent + "%"); //텍스트 값 업데이트 
+    progressBar.css({"width":scrollPercent + "%","background-color":"green ","opacity":"0.7" }) //게이지 값 업데이트
+    $(".box").html("<p>"+scrollTop);
+    
+
+
+    
+
+})
