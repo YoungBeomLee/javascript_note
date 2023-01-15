@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
+
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>rolling</title>
     <style>
+      /* img 72px + 여백8px*=80px */
+
       * {
         margin: 0;
         padding: 0;
       }
 
-      /* img 72px+여백8px = 80px */
       #frame {
         width: 232px;
         height: 88px;
@@ -23,87 +26,82 @@
 
       #banner {
         width: 400px;
-        border: 1px solid red;
         height: 54px;
+        border: 1px solid red;
         display: flex;
+        list-style-type: none;
       }
-
       #banner li {
-        flex: 0 0 78px;
+        flex: 0 0 80px; /*shrink basis flow */
         list-style: none;
-        width: 78px;
+        width: 80px;
         height: 100%;
         background-color: gray;
         font-size: 2em;
-        margin-right: 1px;
       }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script>
-      //document.addEventListenter("DOMContentLoaded",function(){})
-      $(function () {
-        //변수
-        let 
-          list = $("#banner"),
-          num = 0; //슬라이드기능 구현시 번호를 저장할 변수를 먼저만들자
-        
-          const 
-          show_num = 3,
-          total = list.find("li").length, //li 의 갯수 (슬라이드한개)
-          li_width = list.find("li").eq(0).width(),
-          copyObj = list.find("li").clone(),
-          ctrl = $(".ctrl");
-          list.append(copyObj);
-          
-          const timer = setInterval(autoplay, 2000);//const 변수선언은 적용범위가 좁다.
-          
-          ctrl.click(function(){
-            if(ctrl.text()==="stop"){ 
-              /*선택자.text()함수는 클래스나 id에 들어있는 텍스트 문자열을 가져온다.*/
-              ctrl.text("play");
-              clearInterval(timer);
-              
-            }
-            else{
-              ctrl.text("stop");
-              setInterval(autoplay,2000);
-            }
-            
-          })
-          
-          
+            // document.addEventListener("DOMContentLoaded",function(){})
+            $(function () {
+              //변수
+              let list = $("#banner");
+              const show_num = 3;
+              const total = list.find("li").length;
+              const li_width = list.find("li").eq(0).width();
+              console.log(li_width);
+              const copyObj = list.find("li").clone().css("background", "red"); //li 3개 복사
+              list.append(copyObj); //li복사한개수만큼 붙여넣기
 
-        function autoplay() {
-          if (num == total) {
-            num = 0;
-            list.css("margin-left", 0);
-          }
-          num++;
-          list.stop().animate({ "margin-left": -li_width * num }, 1000);
-        }
+              //슬라이드기능 구현시 번호를 저장할 변수를 먼저만들자
+              let num = 0;
 
-        $(".next").click(function () {
-          if (num == total) {
-            num = 0; //0
-            list.css("margin-left", 0);
-          }
-          num++; //요기의 num 0
-          list.stop().animate({ "margin-left": -li_width * num }, 1000); //요기의num
-          return false;
-        });
-        $(".prev").click(function () {
-          if (num == 0) {
-            num = total; //3
-            list.css("margin-left", -li_width * num);
-          }
-          num--;
-          list.stop().animate({ "margin-left": -li_width * num }, 500);
-          return false;
-        });
+              timer=setInterval(autoplay,2000)
+              $(".next").click(function () {
 
-        $(".play").click(function () {});
-        $(".stop").click(function () {});
-      });
+                if (num == total) {
+                  num = 0;
+                  list.css("margin-left", 0);
+                }
+                num++;
+      
+                console.log(num);
+                list.stop().animate({ "margin-left": -li_width * num }, 500);
+                return false; //a태그 스크롤위로 방지
+              });
+
+
+              $(".prev").click(function () {
+                if (num == 0) {
+                  num = total; //3
+                  list.css("margin-left", -li_width * num);
+                }
+                num--;
+
+                //현재 num 0
+                console.log(num);
+                list.stop().animate({ "margin-left": -li_width * num }, 500);
+                return false; //a태그 스크롤위로 방지
+              });
+              function autoplay(){
+
+                  if (num == total) {
+                  num = 0;
+                  list.css("margin-left", 0);
+                }
+                num++;
+                console.log(num);
+                list.stop().animate({ "margin-left": -li_width * num }, 500);
+
+              }
+              $(".stop").click(function () {
+                  clearInterval(timer);
+              });
+              $(".play").click(function () {
+                  setInterval(autoplay,2000);
+              });
+
+            });
     </script>
   </head>
 
@@ -116,8 +114,10 @@
         <li>3</li>
       </ul>
     </div>
-    <a href="#" class="prev">prev</a>
-    <a href="#" class="ctrl">stop</a>
-    <a href="#" class="next">next</a>
+
+    <a href="#prev" class="prev">⏪</a>
+    <a href="#play" class="play">▶</a>
+    <a href="#stop" class="stop">⏸</a>
+    <a href="#next" class="next">⏩</a>
   </body>
 </html>

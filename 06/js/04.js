@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a5bcadc449620bba744336dec1f3225a6df6040
 /*let list1=document.querySelectorAll("#list1>li");
 list1.forEach(function(el,idx){
     console.log(el,idx);
@@ -21,4 +25,9 @@ list1.each(function(idx,el){
     
    
 })
+<<<<<<< HEAD
 })
+=======
+})
+
+>>>>>>> 8a5bcadc449620bba744336dec1f3225a6df6040

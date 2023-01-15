@@ -1,11 +1,21 @@
 //원뎁스 a를 변수 gnbLiA 할당
+<<<<<<< HEAD
 let gnbLiA = $(".gnb>li>a");//border,padding
+=======
+
+let gnbLiA = $(".gnb>li>a");//border,padding
+
+>>>>>>> 8a5bcadc449620bba744336dec1f3225a6df6040
 let sub = $(".sub");
 let aH = $(".sub>li>a").outerHeight()-4;//높이 가변적 outerHeight
 let check=false;
 console.log(aH);
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a5bcadc449620bba744336dec1f3225a6df6040
 gnbLiA.click(function () {
   //클릭된 요소를 변수 tg에 저장
   let tg=$(this);
@@ -30,4 +40,9 @@ gnbLiA.click(function () {
 		$(this).next().removeClass("on");	}
 
 
+<<<<<<< HEAD
 });*/
+=======
+});*/
+
+>>>>>>> 8a5bcadc449620bba744336dec1f3225a6df6040
