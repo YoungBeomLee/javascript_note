@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="change">글자색</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet ad quod officiis natus iusto, ratione, consectetur, a corporis fuga officia pariatur quas. Sapiente officiis, in itaque corrupti perferendis similique!</p>
+    <ul>
+      <li><a href="#" onclick="changeBg('Green')">Green</a></li>
+      <li><a href="#" onclick="changeBg('Orange')">Orange</a></li>
+      <li><a href="#" onclick="changeBg('Purple')">Purple</a></li>
+    </ul>
+    <script>
+      //방법1: 변수지정후 함수호출
+      /*var changeBtn=document.querySelector("#change");*/
+      //이벤트핸들러로 함수호출시 ()안씀
+      /*changeBtn.onclick=changeColor;*/
+      function changeColor() {
+        document.querySelector("p").style.color = "#f00";
+      }
+      //방법 2 : 웹 요소를 따로 변수로 만들지 않고 사용
+      /*document.querySelector("#change").onclick = changeColor;*/
+
+      //방법 3 : 직접 함수를 선언
+      /* document.querySelector("#change").onclick=function(){
+        document.querySelector("p").style.color="#f00";
+    }*/
+    </script>
+    <script>
+      function changeBg(color) {
+        var result=document.querySelector('body');
+        result.style.backgroundColor=color;
+    }
+    </script>
+  </body>
+</html>

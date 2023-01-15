@@ -4,6 +4,7 @@ var i = 0;
 
 function colorbg() {
   let bodytag = document.getElementsByTagName("body")[0];
+  console.log(bodytag);
   bodytag.style.backgroundColor = color[i];
   i++;
   if(i>=color.length){
@@ -12,6 +13,6 @@ function colorbg() {
   
  
   
-
+  
   console.log(i);
 }
