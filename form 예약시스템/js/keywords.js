@@ -1,5 +1,5 @@
-var airports=[
-    { value: "RKPC", label: "제주국제공항, 제주특별자치도 제주시 , CJU" },
+var airports = [
+	{ value: "RKPC", label: "제주국제공항, 제주특별자치도 제주시 , CJU" },
 	{ value: "RKSI", label: "인천국제공항, 인천광역시 중구, SEL" },
 	{ value: "RKSS", label: "김포국제공항, 서울특별시 강서구,  SEL" },
 	{ value: "RKTN", label: "대구국제공항, 대구광역시 동구, TAE" },
